@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pages xmlns="http://chameleon.ibs-qa.ru/schema/web-elements">
+    <Page name="Список товаров">
+        <StaticText name="Заголовок" locator="//h5" isLoaded="true"/>
+        <Collection name="Таблица" locator="//table/tbody/tr">
+            <StaticText name="#" locator=".//th"/>
+            <StaticText name="Наименование" locator=".//td[1]"/>
+            <StaticText locator=".//td[2]" name="Тип"/>
+            <StaticText name="Экзотический" locator=".//td[3]"/>
+            <StaticText locator="//table/thead/tr/th[1]" name="Колонка '#'"/>
+            <StaticText name="Колонка 'Наименование'" locator="//table/thead/tr/th[2]"/>
+            <StaticText name="Колонка 'Тип'" locator="//table/thead/tr/th[3]"/>
+            <StaticText name="Колонка 'Экзотический'" locator="//table/thead/tr/th[3]"/>
+        </Collection>
+        <Button name="Добавить" locator="//button[@data-target='#editModal']"/>
+    </Page>
+    <Page name="Добавление товара" locator="//h5[@class='modal-title']">
+        <StaticText locator='//h5[text()="Добавление товара"]' name="Заголовок"/>
+        <TextInput name="Наименование" locator="//input[@id='name']"/>
+        <ComboBox name="Тип" locator="//select[@id='type']"/>
+        <CheckBox name="Экзотический" locator="//input[@id='exotic']"/>
+        <Button name="Сохранить" locator="//button[@id='save']"/>
+    </Page>
+</Pages>

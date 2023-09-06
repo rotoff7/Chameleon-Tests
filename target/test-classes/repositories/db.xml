@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DbGears xmlns="http://chameleon.ibs-qa.ru/schema/db">
+    <Connection name="H2" driver="org.h2.Driver"
+                url="jdbc:h2:tcp://localhost:9092/mem:testdb;user=#{User};password=#{Password}" autoCommit="true">
+        <Params>
+            <FieldString name="User" locator="User"/>
+            <FieldString name="Password" locator="Password"/>
+        </Params>
+    </Connection>
+    <Query statement="INSERT INTO FOOD (food_name, food_type, food_exotic) values(:FOOD_NAME,:FOOD_TYPE,:FOOD_EXOTIC)"
+           name="Добавление товара">
+        <Params>
+            <FieldString name="name" locator="FOOD_NAME"/>
+            <FieldString name="type" locator="FOOD_TYPE"/>
+            <FieldString name="exotic" locator="FOOD_EXOTIC"/>
+        </Params>
+    </Query>
+    <Query name="Удаление товара" statement="delete from FOOD where food_name = (:FOOD_NAME)">
+        <Params>
+            <FieldString name="name" locator="FOOD_NAME"/>
+        </Params>
+    </Query>
+    <Query name="Получение товара" statement="select * from food where food_name=(:FOOD_NAME) and food_type=(:FOOD_TYPE)">
+        <Params>
+            <FieldString name="name" locator="FOOD_NAME"/>
+            <FieldString name="type" locator="FOOD_TYPE"/>
+        </Params>
+    </Query>
+</DbGears>
