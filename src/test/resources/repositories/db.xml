@@ -20,10 +20,16 @@
             <FieldString name="name" locator="FOOD_NAME"/>
         </Params>
     </Query>
-    <Query name="Получение товара" statement="select * from food where food_name=(:FOOD_NAME) and food_type=(:FOOD_TYPE)">
+    <Query name="Получение товара" statement="select * from food where food_name=:FOOD_NAME and food_type=:FOOD_TYPE">
         <Params>
             <FieldString name="name" locator="FOOD_NAME"/>
             <FieldString name="type" locator="FOOD_TYPE"/>
         </Params>
+        <Result>
+            <FieldInteger name="Идентификатор" locator="FOOD_ID"/>
+            <FieldString name="Имя" locator="FOOD_NAME"/>
+            <FieldString name="Тип" locator="FOOD_TYPE"/>
+            <FieldNumber name="Экхотичность" locator="FOOD_EXOTIC"/>
+        </Result>
     </Query>
 </DbGears>
